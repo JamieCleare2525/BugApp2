@@ -37,4 +37,8 @@ module SessionsHelper
     user == current_user
   end
 
+  def is_bug_manager?
+    @current_user.role == "bug manager"
+  end
+
 end
