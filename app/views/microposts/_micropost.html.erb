@@ -1,9 +1,22 @@
 <li id="micropost-<%= micropost.id %>">
+  <div>
   <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
+</div>
+<div>
+  <strong>Title: </strong>
   <span class="title"><%= micropost.title %></span>
+</div>
+<div>
+  <strong>Description: </strong>
   <span class="description"><%= micropost.description %>
+  </span>
+</div>
+<div>
+  <span class="image">
     <%= image_tag micropost.picture.url if micropost.picture? %>
   </span>
+</div>
+<div>
   <span class="timestamp">
     Posted <%= time_ago_in_words(micropost.created_at) %> ago.
     <% if current_user?(micropost.user) %>
@@ -11,4 +24,5 @@
                                        data: { confirm: "You sure?" } %>
     <% end %>
   </span>
+</div>
 </li>
