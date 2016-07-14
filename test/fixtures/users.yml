@@ -5,3 +5,15 @@ michael:
   email: michael@example.com
   role: Bug Manager
   password_digest: <%= User.digest('password') %>
+
+archer:
+  name: Archer Example
+  email: archer@example.com
+  role: Bug Manager
+  password_digest: <%= User.digest('password') %>
+
+lana:
+  name: Lana Example
+  email: lana@example.com
+  role: Bug Manager
+  password_digest: <%= User.digest('password') %>
