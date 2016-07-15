@@ -1,7 +1,7 @@
 class MicropostsController < ApplicationController
 
-  before_action :logged_in_user, only: [:create, :destroy]
-  before_action :correct_user,   only: :destroy
+  before_action :logged_in_user, only: [:create, :edit, :destroy]
+  before_action :correct_user,   only: [:edit, :destroy]
 
   def create
     @micropost = current_user.microposts.build(micropost_params)
@@ -18,6 +18,20 @@ class MicropostsController < ApplicationController
     @micropost.destroy
     flash[:success] = "Micropost deleted"
     redirect_to request.referrer || root_url
+  end
+
+  def edit
+    @micropost = Micropost.find(params[:id])
+  end
+
+  def update
+    @micropost = Micropost.find(params[:id])
+
+    if @micropost.update(micropost_params)
+      redirect_to @Micropost
+    else
+      render 'edit'
+    end
   end
 
   private
