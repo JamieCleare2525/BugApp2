@@ -22,7 +22,7 @@
     <span class="timestamp">
       Posted <%= time_ago_in_words(micropost.created_at) %> ago.
       <% if @current_user.role == "bug manager" %>
-        <%= link_to 'Edit', micropost %>
+        <%= link_to 'Edit', edit_micropost_path(micropost) %>
         <% end %>
       <% if current_user?(micropost.user) %>
         <%= link_to "delete", micropost, method: :delete,

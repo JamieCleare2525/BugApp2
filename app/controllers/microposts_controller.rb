@@ -28,11 +28,12 @@ class MicropostsController < ApplicationController
     @micropost = Micropost.find(params[:id])
 
     if @micropost.update(micropost_params)
-      redirect_to @Micropost
+      redirect_to @micropost
     else
       render 'edit'
     end
   end
+
 
   private
 
